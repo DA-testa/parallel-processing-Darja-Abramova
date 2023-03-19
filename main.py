@@ -6,7 +6,7 @@ def parallel_processing(n, m, data):
     # create the output pairs
     a = [(i,0) for i in range(n)]
     for i in range(m):
-        a_ind,a_laiks = min(a, b = lambda x : x[1])
+        a_ind,a_laiks = min(a, key = lambda x : x[1])
         output.append((a_ind,a_laiks))
         a[a_ind] = (a_ind, a_laiks + data[i])
 
