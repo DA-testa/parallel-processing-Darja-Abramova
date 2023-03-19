@@ -4,12 +4,11 @@ def parallel_processing(n, m, data):
     output = []
     # TODO: write the function for simulating parallel tasks, 
     # create the output pairs
-    a = {i : 0 for i in range(n)}
+    a = [(i,0) for i in range(n)]
     for i in range(m):
-        laiks = data[i]
-        aindekss = min(a,b=a.get)
-        alaiks = a[aindekss]
-        a[aindekss] = alaiks + laiks
+        a_ind,a_laiks = min(a, b = lambda x : x[1])
+        output.append((a_ind,a_laiks))
+        a[a_ind] = (a_ind, a_laiks + data[i])
 
     return output
 
