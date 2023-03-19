@@ -4,11 +4,12 @@ def parallel_processing(n, m, data):
     output = []
     # TODO: write the function for simulating parallel tasks, 
     # create the output pairs
-    a = [(i,0) for i in range(n)]
+    a = {i : 0 for i in range(n)}
     for i in range(m):
-        a_ind,a_laiks = min(a, b = lambda x : x[1])
-        output.append((a_ind,a_laiks))
-        a[a_ind] = (a_ind, a_laiks + data[i])
+        laiks = data[i]
+        aindekss = min(a,b=a.get)
+        alaiks = a[aindekss]
+        a[aindekss] = alaiks + laiks
 
     return output
 
@@ -18,8 +19,8 @@ def main():
     # first line - n and m
     # n - thread count 
     # m - job count
-    n = map(int, input().split())
-    m = map(int, input().split())
+    n,m = map(int, input().split())
+    
 
     # second line - data 
     # data - contains m integers t(i) - the times in seconds it takes any thread to process i-th job
